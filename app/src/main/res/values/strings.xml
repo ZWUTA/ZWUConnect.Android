@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ZJU Connect</string>
+    <string name="app_name">ZWU Connect</string>
     <!-- Strings used for fragments for navigation -->
     <string name="previous">Previous</string>
 
@@ -13,6 +13,12 @@
     <string name="password">Password</string>
     <string name="input_username">Input username</string>
     <string name="input_password">Input password</string>
+    <string name="server">Server</string>
+    <string name="input_server">Input server</string>
+    <string name="dns1">DNS 1</string>
+    <string name="input_dns1">Input DNS 1</string>
+    <string name="dns2">DNS 2</string>
+    <string name="input_dns2">Input DNS 2</string>
     <string name="action_about">About</string>
     <string name="about_fragment_label">About</string>
     <string name="icon">Icon</string>

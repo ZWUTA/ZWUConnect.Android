@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ZJU Connect</string>
+    <string name="app_name">ZWU Connect</string>
     <string name="previous">上一段</string>
     <string name="started">已启动！</string>
     <string name="stopped">已停止！</string>
@@ -12,6 +12,12 @@
     <string name="password">密码</string>
     <string name="input_username">输入用户名</string>
     <string name="input_password">输入密码</string>
+    <string name="server">服务器</string>
+    <string name="input_server">服务器</string>
+    <string name="dns1">DNS 1</string>
+    <string name="input_dns1">输入 DNS 1</string>
+    <string name="dns2">DNS 2</string>
+    <string name="input_dns2">输入 DNS 2</string>
     <string name="action_about">关于</string>
     <string name="about_fragment_label">关于</string>
     <string name="icon">图标</string>

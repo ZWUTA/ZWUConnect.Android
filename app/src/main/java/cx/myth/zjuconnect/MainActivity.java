@@ -102,6 +102,12 @@ public class MainActivity extends AppCompatActivity {
         ((EditText) findViewById(R.id.usernameEditText)).setText(value);
         value = sharedPreferences.getString("password", "");
         ((EditText) findViewById(R.id.passwordEditText)).setText(value);
+        value = sharedPreferences.getString("server","webvpn.zwu.edu.cn");
+        ((EditText) findViewById(R.id.serverEditText)).setText(value);
+        value = sharedPreferences.getString("dns1","10.70.50.23");
+        ((EditText) findViewById(R.id.dns1EditText)).setText(value);
+        value = sharedPreferences.getString("dns2","10.70.50.25");
+        ((EditText) findViewById(R.id.dns2EditText)).setText(value);
 
         Intent explicitIntent = new Intent("cx.myth.zjuconnect.LOGIN_FAILED");
         explicitIntent.setPackage("cx.myth.zjuconnect");
@@ -117,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "zjuconnect")
                     .setSmallIcon(R.drawable.ic_launcher_foreground)
-                    .setContentTitle("ZJU Connect")
+                    .setContentTitle("ZWU Connect")
                     .setContentText(getResources().getString(R.string.connected));
 
             builder.setOngoing(true);
@@ -160,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startVpnService() {
         new Thread(() -> {
-            String host = "rvpn.zju.edu.cn";
+            String host = ((EditText) findViewById(R.id.serverEditText)).getText().toString();
 
             try {
                 InetAddress address = InetAddress.getByName(host);
@@ -176,6 +182,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("server", hostIp + ":443");
                 intent.putExtra("username", ((EditText) findViewById(R.id.usernameEditText)).getText().toString());
                 intent.putExtra("password", ((EditText) findViewById(R.id.passwordEditText)).getText().toString());
+                intent.putExtra("dns1", ((EditText) findViewById(R.id.dns1EditText)).getText().toString());
+                intent.putExtra("dns2", ((EditText) findViewById(R.id.dns2EditText)).getText().toString());
                 startService(intent);
 
                 binding.fab.setEnabled(false);
@@ -186,6 +194,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", ((EditText) findViewById(R.id.usernameEditText)).getText().toString());
         editor.putString("password", ((EditText) findViewById(R.id.passwordEditText)).getText().toString());
+        editor.putString("server", ((EditText) findViewById(R.id.serverEditText)).getText().toString());
+        editor.putString("dns1", ((EditText) findViewById(R.id.dns1EditText)).getText().toString());
+        editor.putString("dns2", ((EditText) findViewById(R.id.dns2EditText)).getText().toString());
         editor.apply();
     }
 
